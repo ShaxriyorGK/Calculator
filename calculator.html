@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+ 
+  <style>
+   
+ body{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   bacbackground-color: #d5fff4;
+   margin: o;
+   height: 100vh;
+ }
+ 
+ div{
+   border: solid black 15px;
+   border-radius: 20px;
+   background-color: #4b4b4b;
+ }
+ 
+ input{
+   width: 480px;
+   height: 100px;
+   background-color: #272727;
+   color: white;
+   border-radius: 10px;
+   border: none;
+   margin: 15px;
+   text-align: right;
+   padding: 10px;
+   font-size: 50px
+ }
+ 
+ button{
+   width: 100px;
+   height: 100px;
+   background-color: #272727;
+   color: white;
+   margin: 15px;
+   font-size: 50px;
+   border-radius: 10px;
+ }
+
+  </style>
+  
+</head>
+<body>
+  
+ <div>
+   
+  <input id="display" readonly><br> 
+  <button onclick="clearD()">C</button>
+  <button onclick="addItem('(')">(</button>
+  <button onclick="addItem(')')">)</button>
+  <button onclick="addItem('*')">*</button>
+  <br>
+  <button onclick="addItem('7')">7</button>
+  <button onclick="addItem('8')">8</button>
+  <button onclick="addItem('9')">9</button>
+  <button onclick="addItem('/')">/</button>
+  <br>
+  <button onclick="addItem('4')">4</button>
+  <button onclick="addItem('5')">5</button>
+  <button onclick="addItem('6')">6</button>
+  <button onclick="addItem('-')">-</button>
+  <br>
+  <button onclick="addItem('1')">1</button>
+  <button onclick="addItem('2')">2</button>
+  <button onclick="addItem('3')">3</button>
+  <button onclick="addItem('+')">+</button>
+  <br>
+  <button onclick="addItem('00')">00</button>
+  <button onclick="addItem('0')">0</button>
+  <button onclick="addItem('.')">.</button>
+  <button onclick="calculate()">=</button>
+  
+ </div>
+ 
+  <script>
+    
+  var display = document.getElementById("display");
+
+  function addItem(input) {
+    display.value += input;
+  }
+ 
+  function clearD() {
+    display.value = "";
+  }
+ 
+ function calculate() {
+   if (display.value === "") {
+     display.value = "";
+   }
+   else if (display.value !== "Error") {
+     try{
+       display.value = eval(display.value);
+     }
+     catch(error){
+       display.value = "Error";
+     }
+   }
+   else {
+     display.value = "Error";
+   }
+ }
+
+  </script>
+  
+</body>
+</html>
